@@ -46,15 +46,13 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace pref="229" max="32767" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" pref="759" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-              <Component id="jToolBar1" alignment="1" max="32767" attributes="0"/>
+              <Component id="jToolBar1" alignment="1" pref="1000" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                  <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jScrollPane1" min="-2" pref="759" max="-2" attributes="0"/>
+                      <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -64,11 +62,11 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jToolBar1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="40" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="130" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                  <EmptySpace pref="34" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -115,7 +113,7 @@
                   <Color blue="ff" green="ff" red="cc" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/imagenes/if_Refresh_132187.png"/>
+                  <Image iconType="2" name="/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/src/imagenes/if_Refresh_132187.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Show&amp;Update"/>
               </Properties>
@@ -129,7 +127,7 @@
                   <Color blue="ff" green="ff" red="cc" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/imagenes/if_Edit_132232.png"/>
+                  <Image iconType="2" name="/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/src/imagenes/if_Edit_132232.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Modify"/>
               </Properties>
@@ -143,7 +141,7 @@
                   <Color blue="ff" green="ff" red="cc" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/imagenes/if_Save_132226.png"/>
+                  <Image iconType="2" name="/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/src/imagenes/if_Save_132226.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Insert"/>
               </Properties>
@@ -157,7 +155,7 @@
                   <Color blue="ff" green="ff" red="cc" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/imagenes/if_Delete_132192.png"/>
+                  <Image iconType="2" name="/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/src/imagenes/if_Delete_132192.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Delete"/>
               </Properties>
@@ -171,7 +169,7 @@
                   <Color blue="ff" green="ff" red="cc" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/imagenes/if_Search_132289.png"/>
+                  <Image iconType="2" name="/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/src/imagenes/if_Search_132289.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Search"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -189,60 +187,75 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="jLabel4" max="32767" attributes="0"/>
-                          <Component id="jLabel2" max="32767" attributes="0"/>
-                          <Component id="jLabel3" alignment="1" min="-2" pref="89" max="-2" attributes="0"/>
-                          <Component id="jLabel5" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="44" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="unidades" min="-2" pref="206" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="nombre" alignment="1" min="-2" pref="206" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="consola" pref="206" max="32767" attributes="0"/>
-                                      <Component id="codigo" max="32767" attributes="0"/>
-                                      <Component id="precio" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel4" min="-2" pref="95" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel2" min="-2" pref="95" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel1" min="-2" pref="95" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace pref="38" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="precio" min="-2" pref="206" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="unidades" min="-2" pref="206" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="consola" min="-2" pref="206" max="-2" attributes="0"/>
+                                      <Component id="codigo" min="-2" pref="206" max="-2" attributes="0"/>
+                                      <Component id="nombre" alignment="1" min="-2" pref="206" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel3" min="-2" pref="89" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="nombre" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="39" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                          <Component id="nombre" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="consola" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="codigo" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="precio" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="precio" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="23" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="unidades" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -253,8 +266,6 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JTextField" name="nombre">
-            </Component>
             <Component class="javax.swing.JTextField" name="consola">
             </Component>
             <Component class="javax.swing.JTextField" name="codigo">
@@ -266,7 +277,7 @@
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/imagenes/codigo-qr.png"/>
+                  <Image iconType="2" name="/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/src/imagenes/codigo-qr.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="C&#xf3;digo"/>
               </Properties>
@@ -282,7 +293,7 @@
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/imagenes/consola-de-juegos.png"/>
+                  <Image iconType="2" name="/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/src/imagenes/consola-de-juegos.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Consola"/>
               </Properties>
@@ -290,7 +301,7 @@
             <Component class="javax.swing.JLabel" name="jLabel4">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/imagenes/if_Coins_132337.png"/>
+                  <Image iconType="2" name="/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/src/imagenes/if_Coins_132337.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Precio"/>
               </Properties>
@@ -298,10 +309,12 @@
             <Component class="javax.swing.JLabel" name="jLabel5">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/imagenes/archivo-num-simbolo-de-interfaz-rectangular-negro.png"/>
+                  <Image iconType="2" name="/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/src/imagenes/archivo-num-simbolo-de-interfaz-rectangular-negro.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Unidades"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="nombre">
             </Component>
           </SubComponents>
         </Container>

@@ -1,8 +1,11 @@
-package tienda_videojuegos;
+package grafica;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.table.DefaultTableModel;
+import baseDatos.ConectarmyBase;
+import tienda_videojuegos.Juegos;
+import tienda_videojuegos.Tienda_videojuegos;
 
 /**
  *
@@ -47,7 +50,6 @@ public class Tabla_Juego extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        nombre = new javax.swing.JTextField();
         consola = new javax.swing.JTextField();
         codigo = new javax.swing.JTextField();
         precio = new javax.swing.JTextField();
@@ -57,6 +59,7 @@ public class Tabla_Juego extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        nombre = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -91,7 +94,7 @@ public class Tabla_Juego extends javax.swing.JFrame {
         jToolBar1.setRollover(true);
 
         jButton5.setBackground(new java.awt.Color(204, 255, 255));
-        jButton5.setIcon(new javax.swing.ImageIcon("/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/imagenes/if_Refresh_132187.png")); // NOI18N
+        jButton5.setIcon(new javax.swing.ImageIcon("/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/src/imagenes/if_Refresh_132187.png")); // NOI18N
         jButton5.setText("Show&Update");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,7 +104,7 @@ public class Tabla_Juego extends javax.swing.JFrame {
         jToolBar1.add(jButton5);
 
         jButton3.setBackground(new java.awt.Color(204, 255, 255));
-        jButton3.setIcon(new javax.swing.ImageIcon("/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/imagenes/if_Edit_132232.png")); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon("/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/src/imagenes/if_Edit_132232.png")); // NOI18N
         jButton3.setText("Modify");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,7 +114,7 @@ public class Tabla_Juego extends javax.swing.JFrame {
         jToolBar1.add(jButton3);
 
         jButton4.setBackground(new java.awt.Color(204, 255, 255));
-        jButton4.setIcon(new javax.swing.ImageIcon("/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/imagenes/if_Save_132226.png")); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon("/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/src/imagenes/if_Save_132226.png")); // NOI18N
         jButton4.setText("Insert");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,7 +124,7 @@ public class Tabla_Juego extends javax.swing.JFrame {
         jToolBar1.add(jButton4);
 
         jButton7.setBackground(new java.awt.Color(204, 255, 255));
-        jButton7.setIcon(new javax.swing.ImageIcon("/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/imagenes/if_Delete_132192.png")); // NOI18N
+        jButton7.setIcon(new javax.swing.ImageIcon("/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/src/imagenes/if_Delete_132192.png")); // NOI18N
         jButton7.setText("Delete");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,73 +134,83 @@ public class Tabla_Juego extends javax.swing.JFrame {
         jToolBar1.add(jButton7);
 
         jButton1.setBackground(new java.awt.Color(204, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon("/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/imagenes/if_Search_132289.png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon("/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/src/imagenes/if_Search_132289.png")); // NOI18N
         jButton1.setText("Search");
         jButton1.setMaximumSize(new java.awt.Dimension(119, 36));
         jButton1.setPreferredSize(new java.awt.Dimension(119, 36));
         jToolBar1.add(jButton1);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/imagenes/codigo-qr.png")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon("/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/src/imagenes/codigo-qr.png")); // NOI18N
         jLabel3.setText("Código");
 
         jLabel1.setIcon(new javax.swing.ImageIcon("/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/imagenes/texto.png")); // NOI18N
         jLabel1.setText("Nombre");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/imagenes/consola-de-juegos.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/src/imagenes/consola-de-juegos.png")); // NOI18N
         jLabel2.setText("Consola");
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/imagenes/if_Coins_132337.png")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon("/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/src/imagenes/if_Coins_132337.png")); // NOI18N
         jLabel4.setText("Precio");
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/imagenes/archivo-num-simbolo-de-interfaz-rectangular-negro.png")); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon("/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/src/imagenes/archivo-num-simbolo-de-interfaz-rectangular-negro.png")); // NOI18N
         jLabel5.setText("Unidades");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(unidades, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(consola, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
-                                .addComponent(codigo)
-                                .addComponent(precio)))
-                        .addGap(22, 22, 22))))
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel5))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(precio, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(unidades, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addContainerGap())
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(consola, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(22, 22, 22)))))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                .addContainerGap(39, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(consola, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addGap(21, 21, 21)
+                .addGap(24, 24, 24)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addGap(28, 28, 28)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(22, 22, 22)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(unidades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
@@ -208,14 +221,12 @@ public class Tabla_Juego extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(229, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 759, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addComponent(jToolBar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 759, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -223,11 +234,11 @@ public class Tabla_Juego extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
+                .addGap(78, 78, 78)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addGap(81, 81, 81)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -247,11 +258,13 @@ public class Tabla_Juego extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        Juegos nuevo = new Juegos(nombre.getText(), consola.getText(), codigo.getText(), Float.parseFloat(precio.getText()), Integer.parseInt(unidades.getText()));
-        link.insert(nuevo);
+        Tienda_videojuegos.insertarJuego(nombre.getText(), consola.getText(), codigo.getText(), Float.parseFloat(precio.getText()), Integer.parseInt(unidades.getText()));
+        //Juegos nuevo = new Juegos(nombre.getText(), consola.getText(), codigo.getText(), Float.parseFloat(precio.getText()), Integer.parseInt(unidades.getText()));
+        //link.insert(nuevo);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+      
         link.modify(String.valueOf(codigoRecogido));
 
     }//GEN-LAST:event_jButton3ActionPerformed

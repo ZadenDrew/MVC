@@ -1,4 +1,4 @@
-package tienda_videojuegos;
+package baseDatos;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.activation.DataSource;
 import javax.swing.JOptionPane;
+import tienda_videojuegos.Juegos;
 
 /**
  *
@@ -19,19 +20,23 @@ import javax.swing.JOptionPane;
  */
 public class ConectarmyBase {
 
-    public DataSource dataSource;
-    public String db = "mibase.db";
-    public String url = "jdbc:sqlite:/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/" + db;
+    public static DataSource dataSource;
+    public static String db = "mibase.db";
+    public static String url = "jdbc:sqlite:/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/" + db;
 //    public String user = "AndreaBase";
 //    public String pass = "012345C";
-    public Connection link;
-    public PreparedStatement stmt;
-
+    public static Connection link;
+    public static PreparedStatement stmt;
+/**
+ * Constructor por defecto
+ */
     public ConectarmyBase() {
 
     }
-
-    public void connect() {
+/**
+ * Método que conecta nuestro programa a la base de datos.
+ */
+    public static void connect() {
 
         try {
 
@@ -53,8 +58,10 @@ public class ConectarmyBase {
         }
 
     }
-
-    public void disconnect() {
+/**
+ * Método que desconecta el programa de la base de datos.
+ */
+    public static void disconnect() {
         try {
             if (stmt != null) {
                 stmt.close();
@@ -67,8 +74,11 @@ public class ConectarmyBase {
             System.out.println("Error: " + ex);
         }
     }
-
-    public void insert(Juegos j) {
+/**
+ * Método que inserta en la tabla Juegos de la base de datos los valores de un objeto Juegos.
+ * @param j 
+ */
+    public static void insert(Juegos j) {
         connect();
 
         try {
@@ -86,10 +96,13 @@ public class ConectarmyBase {
             System.err.println(ex.getMessage());
         }
         disconnect();
-        this.mostrarJuegos();
+        ConectarmyBase.mostrarJuegos();
     }
-
-    public ArrayList mostrarJuegos() {
+/**
+ * Método que crea un arrayList con 
+ * @return 
+ */
+    public static ArrayList mostrarJuegos() {
         ArrayList<Juegos> listaJuegos = new ArrayList();
         connect();
         ResultSet result;
@@ -108,7 +121,7 @@ public class ConectarmyBase {
         return listaJuegos;
     }
 
-    public void modify(String codigo) {
+    public static void modify(String codigo) {
         connect();
         try {
 
@@ -128,7 +141,7 @@ public class ConectarmyBase {
         disconnect();
     }
 
-    public void delete(String codigo) {
+    public static void delete(String codigo) {
         connect();
 
         try {
