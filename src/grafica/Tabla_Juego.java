@@ -264,7 +264,7 @@ public class Tabla_Juego extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-      
+        Tienda_videojuegos.modificarJuego(String.valueOf(codigoRecogido));
         link.modify(String.valueOf(codigoRecogido));
 
     }//GEN-LAST:event_jButton3ActionPerformed
