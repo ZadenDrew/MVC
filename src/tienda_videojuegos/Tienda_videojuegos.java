@@ -2,6 +2,7 @@ package tienda_videojuegos;
 
 import baseDatos.ConectarmyBase;
 import grafica.Tabla_Juego;
+import java.util.ArrayList;
 
 /**
  *
@@ -16,15 +17,17 @@ public class Tienda_videojuegos {
         Tabla_Juego tb = new Tabla_Juego();
         tb.setVisible(true);
     }
-/**
- * 
- */
+
+    /**
+     *
+     */
     public static void conectar() {
         ConectarmyBase.connect();
     }
-/**
- * 
- */
+
+    /**
+     *
+     */
     public static void desconectar() {
         ConectarmyBase.disconnect();
     }
@@ -68,6 +71,13 @@ public class Tienda_videojuegos {
      */
     public static void borrarJuego(String codigoRecogido) {
         ConectarmyBase.delete(codigoRecogido);
+    }
+/**
+ * 
+ * @return 
+ */
+    public static ArrayList mostrar() {
+        return ConectarmyBase.mostrarJuegos();
     }
 
 }
