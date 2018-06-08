@@ -12,7 +12,6 @@ public class Juegos {
     private String nombre, consola, codigo;
     private float precio;
     private int unidades;
-    private List<Juegos> listaJuego = new ArrayList();
 
     public Juegos() {
     }
@@ -20,13 +19,9 @@ public class Juegos {
     public Juegos(String codigo, String nombre, String consola, float precio, int unidades) {
         this.codigo = codigo;
         this.nombre = nombre;
-        this.consola = consola;        
+        this.consola = consola;
         this.precio = precio;
         this.unidades = unidades;
-    }
-
-    public void crearLista(Juegos j) {
-        listaJuego.add(j);
     }
 
     public String getNombre() {
@@ -69,17 +64,9 @@ public class Juegos {
         this.unidades = unidades;
     }
 
-    public List<Juegos> getListaJuego() {
-        return listaJuego;
-    }
-
-    public void setListaJuego(List<Juegos> listaJuego) {
-        this.listaJuego = listaJuego;
-    }
-
     @Override
     public String toString() {
-        return ("Juegos \n nombre= " + nombre + ", consola= " + consola + ", codigo= " + codigo + ", precio= " + precio + ", unidades= " + unidades + ", listaJuego= " + listaJuego);
+        return ("Juegos ->\ncodigo= " + codigo + ", \nnombre= " + nombre + ", \nconsola= " + consola + ", \nprecio= " + precio + ", \nunidades= " + unidades);
     }
 
 }
