@@ -8,8 +8,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.activation.DataSource;
 import javax.swing.JOptionPane;
 import tienda_videojuegos.Juegos;
@@ -22,28 +20,31 @@ public class ConectarmyBase {
 
     public static DataSource dataSource;
     public static String db = "mibase.db";
-    public static String url = "jdbc:sqlite:/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/" + db;
+    public static String url = "jdbc:sqlite:/home/oracle/NetBeansProjects/tienda_videojuegos/" + db;
 //    public String user = "AndreaBase";
 //    public String pass = "012345C";
     public static Connection link;
     public static PreparedStatement stmt;
-/**
- * Constructor por defecto
- */
+    public static ArrayList<Juegos> listaJuegos = new ArrayList();
+
+    /**
+     * Constructor por defecto de ConectarmyBase
+     */
     public ConectarmyBase() {
 
     }
-/**
- * Método que conecta nuestro programa a la base de datos.
- */
+
+    /**
+     * Método para conectarse a la base de datos
+     */
     public static void connect() {
 
         try {
 
             Class.forName("org.sqlite.JDBC");
 
-            link = DriverManager.getConnection("jdbc:sqlite:/home/local/DANIELCASTELAO/acabezaslopez/NetBeansProjects/tienda_videojuegos/mibase.db");
-            link.setAutoCommit(false);
+            link = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\andrea\\Documents\\NetBeansProjects\\tienda_videojuegos\\mibase.db");
+
             if (link != null) {
                 System.out.println("Conectado.");
             }
@@ -58,26 +59,35 @@ public class ConectarmyBase {
         }
 
     }
-/**
- * Método que desconecta el programa de la base de datos.
- */
+
+    /**
+     * Método para desconectar de la base de datos
+     */
     public static void disconnect() {
         try {
+
             if (stmt != null) {
-                stmt.close();
+                stmt.closeOnCompletion();
+
             }
             if (link != null) {
+
                 link.close();
             }
+
             System.out.println("Conexión cerrada.");
+
         } catch (SQLException ex) {
-            System.out.println("Error: " + ex);
+            System.out.println("Error:" + ex);
         }
     }
-/**
- * Método que inserta en la tabla Juegos de la base de datos los valores de un objeto Juegos.
- * @param j 
- */
+
+    /**
+     * Método que inserta en la base de datos de Juegos los valores obtenidos
+     * mediante el parámetro Juegos que se le pasa
+     *
+     * @param j
+     */
     public static void insert(Juegos j) {
         connect();
 
@@ -90,37 +100,49 @@ public class ConectarmyBase {
             st.setFloat(4, j.getPrecio());
             st.setInt(5, j.getUnidades());
             st.execute();
-            link.commit();
         } catch (SQLException ex) {
-            Logger.getLogger(ConectarmyBase.class.getName()).log(Level.SEVERE, null, ex);
-            System.err.println(ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Ese codigo ya esta repetido");
         }
         disconnect();
         ConectarmyBase.mostrarJuegos();
     }
-/**
- * Método que crea un arrayList con 
- * @return 
- */
+
+    /**
+     * Método que recoge todos los datos de la base de datos de Juegos los mete
+     * en un ArrayList y los devuelve.
+     *
+     * @return ArrayList de Juegos
+     */
     public static ArrayList mostrarJuegos() {
-        ArrayList<Juegos> listaJuegos = new ArrayList();
+        listaJuegos = new ArrayList();
         connect();
         ResultSet result;
         try {
+
             PreparedStatement st = link.prepareStatement("SELECT * FROM Juegos");
+
             result = st.executeQuery();
+
             while (result.next()) {
                 Juegos usu = new Juegos(result.getString("codigo"), result.getString("nombre"),
                         result.getString("consola"), result.getFloat("precio"), result.getInt("unidades"));
                 listaJuegos.add(usu);
             }
+
         } catch (SQLException ex) {
-            System.err.println(ex.getMessage());
+            System.out.println(ex.getMessage());
         }
         disconnect();
         return listaJuegos;
+
     }
 
+    /**
+     * Método que modifica una fila seleccionada Requiriendo los nuevos valores
+     * mediante unos JOptionPane.
+     *
+     * @param codigo
+     */
     public static void modify(String codigo) {
         connect();
         try {
@@ -130,9 +152,7 @@ public class ConectarmyBase {
             String precio = JOptionPane.showInputDialog("dame el precio:");
             String unidades = JOptionPane.showInputDialog("dame las unidades:");
             stmt = link.prepareStatement("UPDATE Juegos set nombre = '" + nombre + "' , consola = '" + consola + "' ,precio = '" + precio + "',unidades = '" + unidades + "' where codigo='" + codigo + "';");
-
             stmt.executeUpdate();
-            link.commit();
 
             System.out.println("La fila ha sido modificada con éxito.");
         } catch (SQLException ex) {
@@ -141,6 +161,13 @@ public class ConectarmyBase {
         disconnect();
     }
 
+    /**
+     * Método que se conecta a la base de datos de Juegos y hace una consulta en
+     * la tabla por código y elimina de la base de datos la fila
+     * correspondiente.
+     *
+     * @param codigo
+     */
     public static void delete(String codigo) {
         connect();
 
@@ -150,7 +177,6 @@ public class ConectarmyBase {
 
             String delete = "DELETE from JUEGOS where codigo='" + codigo + "';";
             st.executeUpdate(delete);
-            link.commit();
 
             System.out.println("Filas borradas con éxito.");
         } catch (SQLException ex) {
@@ -158,4 +184,45 @@ public class ConectarmyBase {
         }
         disconnect();
     }
+
+    /**
+     * Método que se conecta a la base de datos de Juegos y hace una consulta
+     * empleando Query con los valores requeridos. Con los valores encontrados
+     * instanciamos un objeto de la clase Juegos que retornaremos.
+     *
+     * @param s
+     * @param op
+     * @return Juegos
+     */
+    public static Juegos buscar(String s, int op) {
+        connect();
+        ResultSet result;
+        String busca = null;
+        Juegos usu = null;
+
+        try {
+            Statement st = link.createStatement();
+            if (op == 1) {
+                busca = "SELECT * from JUEGOS where codigo='" + s + "';";
+            }
+
+            if (op == 2) {
+                busca = "SELECT * from JUEGOS where nombre='" + s + "';";
+            }
+
+            result = st.executeQuery(busca);
+            while (result.next()) {
+                usu = new Juegos(result.getString("codigo"), result.getString("nombre"),
+                        result.getString("consola"), result.getFloat("precio"), result.getInt("unidades"));
+
+                System.out.println("Filas encontrada con éxito.");
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Seleccione un juego en la tabla a mostrar .");
+        }
+
+        disconnect();
+        return usu;
+    }
+
 }
